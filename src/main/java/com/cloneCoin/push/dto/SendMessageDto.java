@@ -15,13 +15,12 @@ import java.util.stream.Collectors;
 public class SendMessageDto {
 
     private Long userId;
-    @Enumerated(EnumType.STRING)
-    private Type type;
+    private String type;
     private String msg;
     private LocalDateTime receiveTime;
 
     @Builder
-    public SendMessageDto(Long userId, Type type, String msg, LocalDateTime receiveTime) {
+    public SendMessageDto(Long userId, String type, String msg, LocalDateTime receiveTime) {
         this.userId = userId;
         this.type = type;
         this.msg = msg;

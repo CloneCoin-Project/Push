@@ -9,6 +9,5 @@ import java.time.LocalDateTime;
 public class InfoDto {
 
     private Long userId;
-    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime sendTime;
+    private Long leaderId;
 }
