@@ -22,6 +22,12 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/r2test?serverTimezone=KST&characterEncoding=UTF-8
+    username: root
+    password: 1234
+    hibernate:
+      ddl-auto: create-drop
 
 eureka:
   instance:

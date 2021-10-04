@@ -5,30 +5,33 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.*;
-import java.time.LocalDate;
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "messages")
+@Table(value = "messages")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Message {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "message_id")
+    @Column(value = "message_id")
     private Long id;
-
+    @Column
     private Long leaderId;
+    @Column
     private Long userId;
-
+    @Column
     private String type;
-
+    @Column
     private String message;
+    @Column
     private LocalDateTime receiveTime;
 
     public SendMessageDto toDto(){

@@ -23,8 +23,8 @@ public class MainController {
         return "Hello Push Server";
     }
 
-    @PostMapping("/previous")
-    public List<SendMessageDto> getPrevious(@RequestBody InfoDto infoDto){
-        return messageService.getPrevious(infoDto);
-    }
+//    @PostMapping("/previous")
+//    public List<SendMessageDto> getPrevious(@RequestBody InfoDto infoDto){
+//        return messageService.getPrevious(infoDto);
+//    }
 }
