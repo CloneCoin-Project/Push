@@ -23,10 +23,10 @@ public class Message {
     @Column(name = "message_id")
     private Long id;
 
+    private Long leaderId;
     private Long userId;
 
-    @Enumerated(EnumType.STRING)
-    private Type type;
+    private String type;
 
     private String message;
     private LocalDateTime receiveTime;
