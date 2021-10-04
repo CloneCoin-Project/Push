@@ -12,8 +12,8 @@ import org.springframework.data.relational.core.mapping.Table;
 import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
-@Entity
 @Data
+@Entity
 @Table(value = "messages")
 @Builder
 @NoArgsConstructor
@@ -41,5 +41,9 @@ public class Message {
                 .msg(this.message)
                 .receiveTime(this.receiveTime)
                 .build();
+    }
+
+    public Message(String type) {
+        this.type = type;
     }
 }

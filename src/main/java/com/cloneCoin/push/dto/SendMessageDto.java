@@ -5,8 +5,6 @@ import com.cloneCoin.push.domain.Type;
 import lombok.Builder;
 import lombok.Data;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
