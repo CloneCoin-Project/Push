@@ -1,13 +1,14 @@
 server:
-  port: 0 # Random Port : 0
+  port: 8006 # Random Port : 0
 
 spring:
+  profiles:
+    default: dev
   application:
     name: push-server
-
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/push?serverTimezone=UTC&characterEncoding=UTF-8
     username: root
     password: 1234
   jackson:
@@ -18,7 +19,7 @@ spring:
     open-in-view: false
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: none
     properties:
       hibernate:
         format_sql: true
@@ -33,3 +34,52 @@ eureka:
     fetchRegistry: true #gateway는 eureka가 찾을 필요 없다
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:8761/eureka/ # 서버가 가진 위치값
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:mysql://clonecoin-push-db.crtppt0lvgk7.ap-northeast-2.rds.amazonaws.com:3306/push?serverTimezone=UTC&characterEncoding=UTF-8
+    username: clonecoin
+    password: clonecoin
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: false
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    dirver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/test?serverTimezone=UTC&characterEncoding=UTF-8
+    username : root
+    password : 1015
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
