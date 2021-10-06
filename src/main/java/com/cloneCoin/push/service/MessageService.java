@@ -34,7 +34,7 @@ public class MessageService {
             }
             if(m.getType().equals("unfollow")){
                 messages.add(m);
-                break;
+                isTrue = false;
             }
             if(isTrue == true){
                 messages.add(m);
