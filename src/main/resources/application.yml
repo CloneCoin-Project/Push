@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: push-server
+    name: push
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jackson:
